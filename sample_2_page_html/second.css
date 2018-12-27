@@ -1,0 +1,12 @@
+button {
+    background-color: greenyellow;
+    height: 72px;
+    width: 100%;   
+    border-radius: 5px;
+    border-width: 1px;
+    border-color: greenyellow;
+}
+
+h1 {
+    background-color: orange;
+}
