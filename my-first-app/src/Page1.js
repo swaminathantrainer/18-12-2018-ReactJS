@@ -5,7 +5,7 @@ const Page1 = () => {
     return (
         <div>
             <h1>Hello World from first page</h1>
-            <Footer />
+            <footer />
         </div>
     );
 };
