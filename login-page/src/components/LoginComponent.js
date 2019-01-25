@@ -1,11 +1,13 @@
 import React from 'react';
 import InputComponent from './InputComponent';
+import HeaderComponent from './HeaderComponent';
 
 class LoginComponent extends React.Component {
 
     render() {
         return (
             <div style={styles.rootContainer}>
+                <HeaderComponent/>
                 <div style={styles.loginCardContainer}>
                     <p style={{
                         fontSize: '18px',
@@ -55,10 +57,10 @@ const styles = {
 
     loginCardContainer: {
         backgroundColor: 'white',
-        width: '75%',
-        height: '75%',
+        width: '60%',
+        height: '60%',
         border: '1px solid darkgrey',
-        position: 'fixed',
+        position: 'relative',
         top: 0,
         bottom: 0,
         left: 0,
