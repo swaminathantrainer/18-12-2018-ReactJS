@@ -7,7 +7,6 @@ export default (props) => {
             display: 'flex',
             flexDirection: 'row',
             alignItems: 'center',
-            width: '100%',
             padding: '12px',
             backgroundColor: '#f1f1f1',
             border: '1px solid #d3d3d3',

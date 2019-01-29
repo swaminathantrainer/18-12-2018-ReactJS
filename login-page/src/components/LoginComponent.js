@@ -48,19 +48,17 @@ class LoginComponent extends React.Component {
 
 const styles = {
     rootContainer: {
-        width: '100%',
         height: '100%',
         backgroundColor: 'lightgray'
     },
 
     loginCardContainer: {
         backgroundColor: 'white',
-        width: '75%',
-        height: '75%',
+        width: '60%',
+        height: '50%',
         border: '1px solid darkgrey',
-        position: 'fixed',
-        top: 0,
-        bottom: 0,
+        position: 'relative',
+        top: '50px',
         left: 0,
         right: 0,
         margin: 'auto',
