@@ -1,7 +1,28 @@
 import React from 'react';
 import InputComponent from './InputComponent';
+import { __asyncValues } from 'tslib';
 
 class LoginComponent extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            email: null,
+            password: null,
+            errorMessage: ''
+        }
+    }
+
+    validateEmail() {
+        const email = this.state.email;
+
+        if (email) {
+            const emailRegex = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+            return emailRegex.test(email);
+        } else {
+            return false;
+        }
+    }
 
     render() {
         return (
@@ -12,7 +33,14 @@ class LoginComponent extends React.Component {
                         fontWeight: 'bold'
                     }}>Welcome back</p>
                     <p style={styles.lightTextStyle}>Sign in to your account</p>
-                    <InputComponent icon="https://img.icons8.com/color/30/d3d3d3/secured-letter.png" />
+                    <InputComponent
+                        icon="https://img.icons8.com/color/30/d3d3d3/secured-letter.png"
+                        onInputChanged={(value) => {
+                            this.setState({
+                                email: value
+                            });
+                        }}
+                    />
                     <InputComponent icon="https://img.icons8.com/ios-glyphs/30/d3d3d3/lock.png" />
                     <div style={{
                         display: 'flex',
@@ -39,7 +67,18 @@ class LoginComponent extends React.Component {
                             Forgot your password?
                         </p>
                     </div>
-                    <div></div>
+                    <button style={styles.buttonStyle} onClick={() => {
+                        if (this.validateEmail()) {
+                            this.setState({
+                                errorMessage: ""
+                            });
+                        } else {
+                            this.setState({
+                                errorMessage: "Enter a valid email"
+                            });
+                        }
+                    }}>LOGIN</button>
+                    <p style={styles.errorTextStyle}>{this.state.errorMessage}</p>
                 </div>
             </div>
         );
@@ -55,7 +94,7 @@ const styles = {
     loginCardContainer: {
         backgroundColor: 'white',
         width: '60%',
-        height: '50%',
+        height: '350px',
         border: '1px solid darkgrey',
         position: 'relative',
         top: '50px',
@@ -68,6 +107,23 @@ const styles = {
     lightTextStyle: {
         color: '#A9A9A9',
         fontSize: '16px'
+    },
+
+    buttonStyle: {
+        width: '100%',
+        height: '50px',
+        backgroundColor: '#e67e22',
+        color: '#FFF',
+        fontWeight: 'bold',
+        borderRadius: '5px',
+    },
+
+    errorTextStyle: {
+        margin: '8px',
+        color: '#e74c3c',
+        fontWeight: 'bold',
+        fontSize: '18px',
+        textAlign: 'center'
     }
 }
 
