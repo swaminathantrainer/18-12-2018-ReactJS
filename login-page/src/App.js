@@ -10,7 +10,15 @@ class App extends Component {
     return (
       <div className="AppContainer">
         <LogoComponent />
-        <HomeComponent />
+        <div style={{
+          position: 'relative',
+          margin: 'auto',
+          width: '90%',
+          height: '100%',
+          overflow: 'scroll'
+        }}>
+          <HomeComponent />
+        </div>
       </div>
     );
   }

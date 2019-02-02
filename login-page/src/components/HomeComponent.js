@@ -3,6 +3,9 @@ import LogoComponent from './LogoComponent';
 import NavBarComponent from './NavBarComponent';
 import BannerComponent from './BannerComponent';
 import CartComponent from './CartComponent';
+import ListComponent from './ListComponent';
+import { ProductData } from '../sample';
+import ProductCard from './ProductCard';
 
 class HomeComponent extends Component {
 
@@ -26,8 +29,27 @@ class HomeComponent extends Component {
                     <CartComponent />
                     <div />
                 </div>
-                <div />
-                <div />
+                <div style={{
+                    backgroundColor: '#f1c40f',
+                    width: '100%',
+                    height: '70px',
+                    marginTop: '8px',
+                    marginBottom: '8px'
+                }} />
+                <ListComponent
+                    data={ProductData}
+                    renderElement={(element) => {
+                        return (
+                            <ProductCard
+                                img={element.image}
+                                title={element.title}
+                                rate={element.rate}
+                                starCount={element.starCount}
+                                reviews={element.reviews}
+                            />
+                        )
+                    }}
+                />
             </div>
         )
     }
@@ -35,10 +57,7 @@ class HomeComponent extends Component {
 
 const styles = {
     rootContainerStyle: {
-        position: 'fixed',
-        'left': 0,
-        'right': 0,
-        'width': '90%',
+        'width': '100%',
         'height': '100%',
         margin: 'auto'
     },
