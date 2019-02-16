@@ -28,3 +28,8 @@ export const getUpcomingMovies = (region) => {
 export const imageAPI = (imagePath, width) => {
     return `${SCHEMA}://image.tmdb.org/t/p/w${width}${imagePath}`
 }
+
+export const movieAPI = (id) => {
+    const api = `${SCHEMA}://${DOMAIN}/${VERSION}/movie/${id}?api_key=${API_KEY}`;
+    return fetch(api).then(response => response.json());
+}

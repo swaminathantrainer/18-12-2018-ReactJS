@@ -1,6 +1,7 @@
 import React from 'react';
 import { getTrendingData, imageAPI } from '../apis';
 import MovieCard from './MovieCard';
+import { Link } from 'react-router-dom';
 
 export default class MovieListingComponent extends React.Component {
   constructor(props) {
@@ -42,6 +43,10 @@ export default class MovieListingComponent extends React.Component {
     }
   }
 
+  onMovieClicked(movie) {
+
+  }
+
   render() {
     return (
       <div style={{ padding: '16px' }}>
@@ -49,11 +54,17 @@ export default class MovieListingComponent extends React.Component {
           this.state.totalPages &&
           this.state.trendingMovies.map((trending) => {
             return (
-              <MovieCard
-                imageUrl={imageAPI(trending.poster_path, 200)}
-                title={trending.title}
-                rating={trending.vote_average}
-              />
+              <div onClick={() => {
+                this.onMovieClicked(trending);
+              }}>
+                <Link to={`/movies/${trending.id}`}>
+                  <MovieCard
+                    imageUrl={imageAPI(trending.poster_path, 200)}
+                    title={trending.title}
+                    rating={trending.vote_average}
+                  />
+                </Link>
+              </div>
             );
           })
         }

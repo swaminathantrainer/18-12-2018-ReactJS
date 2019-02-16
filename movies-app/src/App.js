@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
-import HomeComponent from './components.js/HomeComponent';
+import HomeComponent from './components/HomeComponent';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { BrowserRouter, Route } from 'react-router-dom';
+import MovieDetailsComponent from './components/MovieDetailsComponent';
 
 class App extends Component {
   render() {
@@ -9,9 +11,12 @@ class App extends Component {
     // while (true) { }
 
     return (
-      <div className="App">
-        <HomeComponent />
-      </div>
+      <BrowserRouter>
+        <div className="App">
+          <Route exact path='/' component={HomeComponent} />
+          <Route path='/movies/:movieId' component={MovieDetailsComponent} />
+        </div>
+      </BrowserRouter>
     );
   }
 }
